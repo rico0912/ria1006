@@ -484,6 +484,17 @@
   border-bottom: solid 15px transparent;
   border-right: solid 20px rgb(149, 158, 155);/*折り返し部分*/
 }
+        button[onclick="scrollToTop()"] {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4CAF50; /* 緑色 */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+}
     </style>
 </head>
 
@@ -807,6 +818,22 @@ document.getElementById("countButton").addEventListener("click", function() {
     alert('正しいカラーコードを入力してください。例: #FF0000');
   }
 }
+        function scrollToTop() {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth' // スムーズなスクロール
+  });
+}
+
+// スクロール位置に応じてボタンの表示/非表示を切り替える
+window.addEventListener('scroll', function() {
+  const scrollToTopButton = document.querySelector('button[onclick="scrollToTop()"]');
+  if (window.scrollY > 200) { // 200px以上スクロールしたら表示
+    scrollToTopButton.style.display = 'block';
+  } else {
+    scrollToTopButton.style.display = 'none';
+  }
+});
 
     </script>
     
